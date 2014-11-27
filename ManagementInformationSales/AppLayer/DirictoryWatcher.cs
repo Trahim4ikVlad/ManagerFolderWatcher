@@ -13,11 +13,15 @@ namespace AppLayer
         public string CatalogName { get; set; }
 
         private FileSystemWatcher _catalogWatcher;
-
+        
         private bool disposed = false;
 
+        public DirictoryWatcher(string path)
+        {
+          Init(path);
+        }
 
-        public void Init(string catalogName)
+        private void Init(string catalogName)
         {
             if (catalogName != null)
             {
@@ -46,21 +50,39 @@ namespace AppLayer
                 _catalogWatcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
                                                | NotifyFilters.FileName | NotifyFilters.DirectoryName;
                 _catalogWatcher.Filter = "*.csv";
+                _catalogWatcher.Path = CatalogName;
             }
         }
 
         public void Run()
         {
             _catalogWatcher.Changed += new FileSystemEventHandler(OnChanged);
-            _catalogWatcher.Created += new FileSystemEventHandler(OnChanged);
-            _catalogWatcher.Deleted += new FileSystemEventHandler(OnChanged);
+            _catalogWatcher.Created += new FileSystemEventHandler(OnCreated);
+            _catalogWatcher.Deleted += new FileSystemEventHandler(OnDeleted);
             _catalogWatcher.Renamed += new RenamedEventHandler(OnRenamed);
             _catalogWatcher.EnableRaisingEvents = true;
         }
 
+        //удаление
+        private void OnDeleted(object sender, FileSystemEventArgs e)
+        {
+           
+        }
+
+        //создание
+        private void OnCreated(object sender, FileSystemEventArgs e)
+        {
+          
+        }
+
+        //изменение
+        private void OnChanged(object sender, FileSystemEventArgs e)
+        {
+        }
+
         private void OnRenamed(object sender, RenamedEventArgs e)
         {
-
+            
         }
 
         public void Stop()
@@ -69,16 +91,16 @@ namespace AppLayer
             _catalogWatcher.Dispose();
         }
 
-        private void OnChanged(object sender, FileSystemEventArgs e)
+        public IList<String> GetFiles()
         {
-
+            return Directory.GetFiles(CatalogName, "*.csv");
         }
 
         public void Dispose()
         {
             _catalogWatcher.Changed -= OnChanged;
-            _catalogWatcher.Created -= OnChanged;
-            _catalogWatcher.Deleted -= OnChanged;
+            _catalogWatcher.Created -= OnCreated;
+            _catalogWatcher.Deleted -= OnDeleted;
             _catalogWatcher.Renamed -= OnRenamed;
             _catalogWatcher.Dispose();
         }
