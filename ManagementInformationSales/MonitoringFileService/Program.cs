@@ -5,7 +5,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FolderWatcherWindowsService
+namespace MonitoringFileService
 {
     static class Program
     {
@@ -17,7 +17,7 @@ namespace FolderWatcherWindowsService
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
             { 
-                new Service1() 
+                new MonitoringFileService() 
             };
             ServiceBase.Run(ServicesToRun);
         }

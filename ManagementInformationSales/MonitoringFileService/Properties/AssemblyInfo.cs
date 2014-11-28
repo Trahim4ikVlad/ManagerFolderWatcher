@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FolderWatcherWindowsService")]
+[assembly: AssemblyTitle("MonitoringFileService")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("FolderWatcherWindowsService")]
+[assembly: AssemblyProduct("MonitoringFileService")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8e93f439-c3a5-4e58-9533-8af3d48787bb")]
+[assembly: Guid("dd8ef6f5-6225-4ad0-9a08-1b4b5ad7cd5b")]
 
 // Version information for an assembly consists of the following four values:
 //

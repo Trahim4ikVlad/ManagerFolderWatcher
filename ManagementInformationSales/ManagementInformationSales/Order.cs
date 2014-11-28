@@ -14,14 +14,14 @@ namespace ManagementInformationSales
     
     public partial class Order
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public System.DateTime OrderDate { get; set; }
-        public int ManagerId { get; set; }
-        public int ClientId { get; set; }
+        public int ManagerID { get; set; }
+        public int ClientID { get; set; }
         public string ProductName { get; set; }
         public double Cost { get; set; }
     
-        public virtual Manager Manager { get; set; }
         public virtual Client Client { get; set; }
+        public virtual Manager Manager { get; set; }
     }
 }

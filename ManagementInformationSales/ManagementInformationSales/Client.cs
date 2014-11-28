@@ -19,8 +19,8 @@ namespace ManagementInformationSales
             this.Orders = new HashSet<Order>();
         }
     
-        public int Id { get; set; }
-        public string FullName { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
     
         public virtual ICollection<Order> Orders { get; set; }
     }

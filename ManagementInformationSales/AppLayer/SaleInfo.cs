@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace AppLayer
 {
-    public class SaleInfoFile
+    public class SaleInfo
     {
-        public string ManagerName { get; set; }
         public DateTime DateSale { get; set; }
         public string ClientName { get; set; }
         public string ProductName { get; set; }

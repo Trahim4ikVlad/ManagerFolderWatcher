@@ -47,59 +47,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
+      <DependentUpon>SalesInfoDBedmx.tt</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <DependentUpon>SalesInfoDBedmx.tt</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
+      <DependentUpon>SalesInfoDBedmx.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="ModelDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="SalesInfoDBedmx.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesInfoDBedmx.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesInfoDBedmx.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesInfoDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesInfoDBedmx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesInfoDBedmx.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>SalesInfoDBedmx.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ModelDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
-    </None>
-    <None Include="ModelDB.edmx.diagram">
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-    </None>
-    <None Include="ModelDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-      <LastGenOutput>ModelDB.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="SalesInfoDBedmx.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SalesInfoDBedmx.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SalesInfoDBedmx.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SalesInfoDBedmx.edmx</DependentUpon>
+      <LastGenOutput>SalesInfoDBedmx.Context.cs</LastGenOutput>
+    </None>
+    <None Include="SalesInfoDBedmx.edmx.diagram">
+      <DependentUpon>SalesInfoDBedmx.edmx</DependentUpon>
+    </None>
+    <None Include="SalesInfoDBedmx.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SalesInfoDBedmx.edmx</DependentUpon>
+      <LastGenOutput>SalesInfoDBedmx.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ModelDB.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

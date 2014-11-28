@@ -13,10 +13,10 @@ namespace ManagementInformationSales
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class InformationSalesDBContainer : DbContext
+    public partial class SalesInfoDBEntities : DbContext
     {
-        public InformationSalesDBContainer()
-            : base("name=InformationSalesDBContainer")
+        public SalesInfoDBEntities()
+            : base("name=SalesInfoDBEntities")
         {
         }
     
@@ -25,8 +25,9 @@ namespace ManagementInformationSales
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Client> ClientSet { get; set; }
-        public DbSet<Manager> ManagerSet { get; set; }
-        public DbSet<Order> OrderSet { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Manager> Managers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

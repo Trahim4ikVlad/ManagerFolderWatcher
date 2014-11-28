@@ -8,11 +8,11 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FolderWatcherWindowsService
+namespace MonitoringFileService
 {
-    public partial class Service1 : ServiceBase
+    public partial class MonitoringFileService : ServiceBase
     {
-        public Service1()
+        public MonitoringFileService()
         {
             InitializeComponent();
         }
