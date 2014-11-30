@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLayer", "AppLayer\AppLay
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartingProject", "StartingProject\StartingProject.csproj", "{26795221-E3B8-4D46-82E3-0954987DB1AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitoringFileService", "MonitoringFileService\MonitoringFileService.csproj", "{7E171E1A-6870-4007-A6EA-F0885DCEA4CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverService", "ObserverService\ObserverService.csproj", "{26348DDF-AB80-443D-9BDD-D68010AE321A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +27,10 @@ Global
 		{26795221-E3B8-4D46-82E3-0954987DB1AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26795221-E3B8-4D46-82E3-0954987DB1AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26795221-E3B8-4D46-82E3-0954987DB1AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7E171E1A-6870-4007-A6EA-F0885DCEA4CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E171E1A-6870-4007-A6EA-F0885DCEA4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E171E1A-6870-4007-A6EA-F0885DCEA4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E171E1A-6870-4007-A6EA-F0885DCEA4CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26348DDF-AB80-443D-9BDD-D68010AE321A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26348DDF-AB80-443D-9BDD-D68010AE321A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26348DDF-AB80-443D-9BDD-D68010AE321A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26348DDF-AB80-443D-9BDD-D68010AE321A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,6 @@
-﻿namespace MonitoringFileService
+﻿namespace ObserverService
 {
-    partial class MonitoringFileService
+    partial class Service1
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            // 
-            // Service1
-            // 
-            this.ServiceName = "MonitoringService";
-
+            components = new System.ComponentModel.Container();
+            this.ServiceName = "Service1";
         }
 
         #endregion

@@ -5,7 +5,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MonitoringFileService
+namespace ObserverService
 {
     static class Program
     {
@@ -17,7 +17,7 @@ namespace MonitoringFileService
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
             { 
-                new MonitoringFileService() 
+                new Service1() 
             };
             ServiceBase.Run(ServicesToRun);
         }

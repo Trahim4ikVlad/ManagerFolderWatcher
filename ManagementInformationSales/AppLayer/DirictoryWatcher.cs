@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AppLayer
@@ -13,6 +16,8 @@ namespace AppLayer
         public string WatcherDirectory { get; set; }
         public string ViewedFilesDirectory{ get; set; }
 
+        private BlockingCollection<Administrator> _blockingCollection;
+       
 
         private FileSystemWatcher _catalogWatcher;
         
@@ -23,7 +28,8 @@ namespace AppLayer
 
         private void Initialize(string watcherDirectory)
         {
-            if (watcherDirectory != null)
+            _blockingCollection  = new  BlockingCollection<Administrator>(3);
+             if (watcherDirectory != null)
             {
                 WatcherDirectory = watcherDirectory;
             }
@@ -32,12 +38,18 @@ namespace AppLayer
                 if (ReadSetting("WatcherDirectory") != null)
                     WatcherDirectory = ReadSetting("WatcherDirectory");
             }
-
+            
+            if (ReadSetting("ViewedFilesDirectory") != null)
+            {
+                ViewedFilesDirectory = ReadSetting("ViewedFilesDirectory");
+            }
 
             _catalogWatcher = new FileSystemWatcher(WatcherDirectory);
             _catalogWatcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
                                                | NotifyFilters.FileName | NotifyFilters.DirectoryName;
              _catalogWatcher.Filter = "*.csv";
+            //_factory = new TaskFactory();
+
         }
 
         public void Run()
@@ -49,17 +61,27 @@ namespace AppLayer
 
             foreach (string currentFile in currentFiles)
             {
-                Administrator administrator = new Administrator(currentFile, WatcherDirectory);
-                administrator.RegistrationSale();
-                MoveFile(currentFile);
+                Administrator administrator = new Administrator(currentFile, WatcherDirectory)
+                {
+                    ViewedDirictory = ViewedFilesDirectory
+                };
+                if (!_blockingCollection.IsAddingCompleted)
+               _blockingCollection.Add(administrator);
+               
+               Task.Factory.StartNew(() => _blockingCollection.Take().RegistrationSale());
             }
         }
-       
-        //создание
+ 
         private void OnCreated(object sender, FileSystemEventArgs e)
         {
-           Administrator administrator = new Administrator(e.Name, WatcherDirectory);
-           administrator.RegistrationSale();
+           Administrator administrator = new Administrator(e.Name, WatcherDirectory)
+           {
+               ViewedDirictory =  ViewedFilesDirectory
+           };
+           
+            _blockingCollection.Add(administrator);
+
+            Task.Factory.StartNew(() => _blockingCollection.Take().RegistrationSale());
         }
 
         public void Stop()
@@ -85,42 +107,34 @@ namespace AppLayer
         {
             _catalogWatcher.Created -= OnCreated;
             _catalogWatcher.Dispose();
+            _blockingCollection.CompleteAdding();
         }
 
         private static string ReadSetting(string key)
         {
             string result = null;
+            string sectionName = "appSettings";
 
             try
             {
-                var appSettings = ConfigurationManager.AppSettings;
+                Configuration config = ConfigurationManager.OpenExeConfiguration(
+            ConfigurationUserLevel.None);
 
-                if (appSettings[key] != null)
+                AppSettingsSection appSettingSection =
+        (AppSettingsSection)config.GetSection(sectionName);
+
+                if (appSettingSection.Settings[key]  != null)
                 {
-                    result = appSettings[key];
+                    result = appSettingSection.Settings[key].Value;
                 }
             }
             catch (ConfigurationErrorsException)
             {
-                Console.WriteLine("Error reading app settings");
+                throw new Exception("Error reading app settings");
             }
 
             return result;
         }
-
-
-        private  void MoveFile(string fileName)
-        {
-
-            string sourceFile = Path.Combine(WatcherDirectory, fileName);
-            string destinationFile = Path.Combine(ViewedFilesDirectory, fileName);
-
-            if (!Directory.Exists(ViewedFilesDirectory))
-            {
-                Directory.CreateDirectory(ViewedFilesDirectory);
-            }
-
-            File.Move(sourceFile, destinationFile);
-        }
+     
     }
 }

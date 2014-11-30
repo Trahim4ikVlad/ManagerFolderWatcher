@@ -1,4 +1,4 @@
-﻿namespace MonitoringFileService
+﻿namespace ObserverService
 {
     partial class ProjectInstaller
     {
@@ -36,12 +36,10 @@
             this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
             this.serviceProcessInstaller1.Password = null;
             this.serviceProcessInstaller1.Username = null;
-            this.serviceProcessInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceProcessInstaller1_AfterInstall);
             // 
             // serviceInstaller1
             // 
-            this.serviceInstaller1.Description = "Monitoring file ";
-            this.serviceInstaller1.ServiceName = "MonitoringFileService";
+            this.serviceInstaller1.ServiceName = "ObserverService";
             this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // ProjectInstaller

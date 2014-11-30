@@ -12,10 +12,11 @@ namespace StartingProject
     {
         static void Main(string[] args)
         {
-            DirictoryWatcher watcher = new DirictoryWatcher(@"C:\Users\Vlad\Documents\GitHub\ManagerFolderWatcher");
+            //DirictoryWatcher watcher = new DirictoryWatcher(@"C:\Users\Vlad\Documents\GitHub\ManagerFolderWatcher\Files");
+            DirictoryWatcher watcher = new DirictoryWatcher(null);
 
-           
             watcher.Run();
+
             Thread.Sleep(100000);
             watcher.Stop();
         }

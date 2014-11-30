@@ -7,22 +7,27 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using AppLayer;
 
-namespace MonitoringFileService
+namespace ObserverService
 {
-    public partial class MonitoringFileService : ServiceBase
+    public partial class Service1 : ServiceBase
     {
-        public MonitoringFileService()
+        DirictoryWatcher dir = new DirictoryWatcher(null);
+
+        public Service1()
         {
             InitializeComponent();
         }
 
         protected override void OnStart(string[] args)
         {
+            dir.Run();
         }
 
         protected override void OnStop()
         {
+            dir.Stop();
         }
     }
 }

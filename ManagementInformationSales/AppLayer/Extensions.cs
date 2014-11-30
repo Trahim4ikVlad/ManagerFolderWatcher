@@ -67,7 +67,6 @@ namespace AppLayer
         private static DateTime ConvertToDate(this string dateString)
         {
             DateTime dateValue;
-
             try
             {
                 dateValue = DateTime.ParseExact(dateString, "dd/mm/yyyy", CultureInfo.InvariantCulture);

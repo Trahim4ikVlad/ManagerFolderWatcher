@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MonitoringFileService")]
+[assembly: AssemblyTitle("ObserverService")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("MonitoringFileService")]
+[assembly: AssemblyProduct("ObserverService")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("dd8ef6f5-6225-4ad0-9a08-1b4b5ad7cd5b")]
+[assembly: Guid("4c40f942-b883-41ab-b120-a09235c380d6")]
 
 // Version information for an assembly consists of the following four values:
 //
